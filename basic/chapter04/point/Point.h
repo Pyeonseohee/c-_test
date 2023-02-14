@@ -9,7 +9,7 @@ class Point
     public:
         bool InitMembers(int xpos, int ypos);
         int GetX() const;
-        int Gety() const;
+        int GetY() const;
         bool SetX(int xpos);
         bool SetY(int ypos);
 };

@@ -19,7 +19,7 @@ int Point::GetX() const
     return x;
 }
 
-int Point::Gety() const
+int Point::GetY() const
 {
     return y;
 }
