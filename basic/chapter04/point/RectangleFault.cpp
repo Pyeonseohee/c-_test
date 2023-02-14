@@ -26,7 +26,7 @@ int Point::Gety() const
 
 bool Point::SetX(int xpos)
 {
-    if (0 > xpos || xpos < 100)
+    if (0 > xpos || xpos > 100)
     {
         cout << "벗어난 범위의 값 전달" << endl;
         return false;
