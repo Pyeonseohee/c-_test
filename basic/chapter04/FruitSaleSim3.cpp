@@ -10,7 +10,7 @@ class FruitSeller
     public:
         FruitSeller(int price, int num, int money)
         : APPLE_PRICE(price), numOfApples(num), myMoney(money){}
-        int SaleApple(int money)
+        int SaleApples(int money)
         {
             int num = money / APPLE_PRICE;
             numOfApples -= num;
@@ -33,7 +33,7 @@ class FruitBuyer
         FruitBuyer(int money) : myMoney(money), numOfApples(0){}
         void BuyApples(FruitSeller &seller, int money)
         {
-            numOfApples += seller.SaleApple(money);
+            numOfApples += seller.SaleApples(money);
             myMoney -= money;
         }
         void ShowByResult() const
