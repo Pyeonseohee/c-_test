@@ -15,6 +15,7 @@ void bubbleSortAsc(int *array, int length)
     }
 
 }
+
 int main(void)
 {
     int arr[10] = {30, 100, 90, 0, 10, 20, 50, 40, 80, 70};
