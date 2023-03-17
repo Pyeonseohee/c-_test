@@ -1,16 +1,7 @@
 // Bubble sort c++로 구현하기
 #include <iostream>
+#include "../myLibrary/sorting.cpp" // 정수 swap과 정수 배열 출력
 using namespace std;
-void printArray(int *array, int length); // 배열요소 print
-void swapping(int *a, int *b); // 두 개의 매개변수 swap
-void bubbleSortAsc(int *array, int leght); // bubble sort 오른차순
-
-void printArray(int *array, int length)
-{
-    for(int i = 0; i < length; i++)
-        cout << array[i] << " ";
-    cout << endl;
-}
 
 void bubbleSortAsc(int *array, int length)
 {
@@ -24,14 +15,6 @@ void bubbleSortAsc(int *array, int length)
     }
 
 }
-
-void swapping(int *a, int *b)
-{
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
 int main(void)
 {
     int arr[10] = {30, 100, 90, 0, 10, 20, 50, 40, 80, 70};
