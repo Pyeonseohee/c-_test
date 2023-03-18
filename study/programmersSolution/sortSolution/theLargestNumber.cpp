@@ -1,30 +1,37 @@
-#include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <iostream>
 using namespace std;
 
-bool cmp(string a, string b)
+bool compare(const string &a, const string &b)
 {
-    return a + b > b + a;
+    cout << a << " " << b << endl;
+    if (b + a < a + b)
+        return true;
+    return false;
 }
 
-string solution(vector<int> numbers)
-{
+string solution(vector<int> numbers) {
     string answer = "";
-    vector<string> temp;
-    for(auto num : numbers)
-        temp.push_back(to_string(num));
-    sort(temp.begin(), temp.end(), cmp);
-    if(temp.at(0) == "0") return "0";
-    for(auto num : temp)
-        answer += num;
+    vector<string> strings;
+    for (int i : numbers)
+        strings.push_back(to_string(i));
+
+    sort(strings.begin(), strings.end(), compare);
+    for (auto iter = strings.begin(); iter < strings.end(); iter++){
+        answer += *iter;
+    }
+
+    // answer의 첫글자가 0이면 그냥 0 반환
+    if (answer[0] == '0')
+        answer = "0";
     return answer;
 }
 
 int main(void)
 {
-    vector<int> numbers = {30, 5, 9, 34, 3};
-    cout << solution(numbers) << endl;
+    vector<int> v = {30, 5, 9, 34, 3};
+    cout << "sol:" << solution(v) << endl;
     return 0;
 }

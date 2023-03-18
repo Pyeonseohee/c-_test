@@ -1,4 +1,5 @@
 // 범위 기반 for 루프 : array, vector, list, set, map과 같은 구조에서도 작동.
+// 다만, 포인터로 변환된 배열은 배열의 크기를 알지 못하기 때문에 사용 못함.
 #include <iostream>
 using namespace std;
 
