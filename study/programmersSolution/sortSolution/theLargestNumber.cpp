@@ -4,46 +4,27 @@
 #include <algorithm>
 using namespace std;
 
-void printVector(vector<int> v)
+bool cmp(string a, string b)
 {
-    for(int i = 0; i < v.size(); i++)
-        cout << "v[" << i << "]: " << v[i] << endl;
+    return a + b > b + a;
 }
 
-void printVector(vector<string> v)
+string solution(vector<int> numbers)
 {
-    for(int i = 0; i < v.size(); i++)
-        cout << "v[" << i << "]: " << v[i] << endl;
-}
-
-vector<string> intToString(vector<int> v)
-{
-    vector<string> strV;
-    for(int i = 0; i < v.size(); i++)
-        strV.push_back(to_string(v[i]));
-    return strV;
-}
-
-bool compare(string s1, string s2)
-{
-    if(s1[0] == s2[0])
-    {
-        if(s1[s1.length() - 1] > s2[s2.length() - 1] && s1[s1.length() - 1] <= s1[0])
-            return s1 > s2;
-    }
-    return s1 < s2;
+    string answer = "";
+    vector<string> temp;
+    for(auto num : numbers)
+        temp.push_back(to_string(num));
+    sort(temp.begin(), temp.end(), cmp);
+    if(temp.at(0) == "0") return "0";
+    for(auto num : temp)
+        answer += num;
+    return answer;
 }
 
 int main(void)
 {
-    string answer ="";
-    vector<int> numbers = {3, 30, 34, 5, 9};
-    vector<string> numbersToString;
-    numbersToString = intToString(numbers);
-    sort(numbersToString.begin(), numbersToString.end(), compare);
-    for(int i = numbersToString.size() - 1; i >= 0; i--)
-    {
-        answer.append(numbersToString[i]);
-    }
+    vector<int> numbers = {30, 5, 9, 34, 3};
+    cout << solution(numbers) << endl;
     return 0;
 }
