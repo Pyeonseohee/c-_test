@@ -1,13 +1,12 @@
-// void printVector(vector<int> v)
-// {
-//     for(int i = 0; i < v.size(); i++)
-//         cout << "v[" << i << "]: " << v[i] << endl;
-// }
-
-#include <string>
+#include <iostream>
 #include <vector>
-
 using namespace std;
+
+void printVector(vector<int> v)
+{
+    for(int i = 0; i < v.size(); i++)
+        cout << "v[" << i << "]: " << v[i] << endl;
+}
 
 void quickSort(vector<int>& v, int start, int end)
 {
@@ -29,17 +28,11 @@ void quickSort(vector<int>& v, int start, int end)
     quickSort(v, j + 1, end);
 }
 
-vector<int> solution(vector<int> array, vector<vector<int>> commands) {
-    vector<int> answer;
-    for(int i = 0; i < commands.size(); i++)
-    {
-        vector<int> tmp; // 0으로 자동초기화
-        for(int j = commands[i][0] - 1; j < commands[i][1]; j++)
-        {
-            tmp.push_back(array[j]);
-        }
-        quickSort(tmp, 0, tmp.size() - 1);
-        answer.push_back(tmp[commands[i][2] - 1]);
-    }
-    return answer;
+int main(void)
+{
+    vector<int>v = {10, 40, 90, 20, 50};
+    quickSort(v, 0, v.size() - 1);
+    cout << v.size() - 1;
+    printVector(v);
+    return 0;
 }
