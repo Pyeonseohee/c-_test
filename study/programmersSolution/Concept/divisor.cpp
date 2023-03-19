@@ -30,6 +30,7 @@ void best_factor(int a){
         }
     }
 }
+
 int main(void){
     simplest_factor(10);
     cout << "---------" << endl;
