@@ -8,11 +8,17 @@ int solution(int k, vector<vector<int>> dungeons) {
     int answer = -1;
     sort(dungeons.begin(), dungeons.end());
     do{
-        for(int i = 0; i < dungeons.size(); i++)
-        {
+        int tmp = 0;
+        int tmp_k = k;
+        for(int i = 0; i < dungeons.size(); i++){
             cout << dungeons[i][0] << " " << dungeons[i][1] << endl;
+            if(tmp_k >= dungeons[i][0]){
+                tmp++;
+                tmp_k -= dungeons[i][1];
+            }
+            break;
         }
-        cout << endl;
+        cout << tmp << endl;
     }while(next_permutation(dungeons.begin(), dungeons.end()));
     return answer;
 }
