@@ -6,19 +6,21 @@ using namespace std;
 
 int solution(int k, vector<vector<int>> dungeons) {
     int answer = -1;
+    int tmp_k = 0;
+    vector<int> answerArr;
     sort(dungeons.begin(), dungeons.end());
     do{
         int tmp = 0;
-        int tmp_k = k;
+        tmp_k = k;
         for(int i = 0; i < dungeons.size(); i++){
-            cout << "tmp_k: " << tmp_k << " " << dungeons[i][0] << " " << dungeons[i][1] << endl;
+            //cout << "tmp_k: " << tmp_k << " " << dungeons[i][0] << " " << dungeons[i][1] << endl;
             if(tmp_k >= dungeons[i][0]){
                 tmp++;
                 tmp_k -= dungeons[i][1];
-            }
+            }else break;
         }
-        cout << tmp << endl;
     }while(next_permutation(dungeons.begin(), dungeons.end()));
+    answer = tmp_k;
     return answer;
 }
 
