@@ -13,6 +13,7 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
     vector<int> count;
     int tmp = 1;
+    int front  = 0;
     
     for(int i = 0; i < progresses.size(); i++){
         int progress = 100 - progresses[i];
@@ -20,11 +21,17 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
         if(progress % speeds[i] != 0)
             count[i]++;
     }
-    printVector(count);
 
-    for(int i = 0; i < count.size(); i++){
-        
+    for(int i = 1; i < count.size(); i++){
+        if(count[front] >= count[i])
+            tmp++;
+        else{
+            answer.push_back(tmp);
+            front = i;
+            tmp = 1;
+        }
     }
+    answer.push_back(tmp);
     return answer;
 } 
 int main(void){
