@@ -85,6 +85,7 @@
     "sstream": "cpp",
     "thread": "cpp",
     "typeindex": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "queue": "cpp"
   }
 }
