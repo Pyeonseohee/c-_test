@@ -4,12 +4,6 @@
 #include <algorithm>
 using namespace std;
 
-void printVector(vector<char> v)
-{
-    for(int i = 0; i < v.size(); i++)
-        cout << "v[" << i << "]: " << v[i] << endl;
-}
-
 void isPrime(int n){
     bool *isPrime = new bool[n + 1];
 
@@ -28,14 +22,18 @@ void isPrime(int n){
 
 int solution(string numbers) {
     int answer = 0;
+    string test;
     vector<char> numChar; 
     string tmp;
-    for(const char& i : numbers){
+    for(const char& i : numbers)
         numChar.push_back(i);
-    }
     sort(numChar.begin(), numChar.end());
-    printVector(numChar);
 
+    do{
+        test = "";
+       for(auto tmp: numChar) test += tmp;
+       if (isPrime(stoi(test))) answer++;
+    }while(next_permutation(numChar.begin(), numChar.end()));
 
     return answer;
 }
