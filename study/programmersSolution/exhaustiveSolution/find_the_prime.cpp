@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-void isPrime(int n){
+bool isPrime3(int n){
     bool *isPrime = new bool[n + 1];
 
     for(int i = 0; i <= n; i++){
@@ -13,27 +13,31 @@ void isPrime(int n){
 
     for(int i = 2; i <= n; i++){
         if(isPrime[i]){
-            cout << i << " ";
             for(int j = i * 2; j <= n; j += i)
                 isPrime[j] = false;
         }
     }
-}
+    if(isPrime[n] == true) return true;
+    else return false;
+}  
 
 int solution(string numbers) {
     int answer = 0;
     string test;
-    vector<char> numChar; 
-    string tmp;
-    for(const char& i : numbers)
-        numChar.push_back(i);
-    sort(numChar.begin(), numChar.end());
+    // vector<char> numChar;
+    // for(const char& i : numbers)
+    //     numChar.push_back(i);
+    sort(numbers.begin(), numbers.end());
 
     do{
         test = "";
-       for(auto tmp: numChar) test += tmp;
-       if (isPrime(stoi(test))) answer++;
-    }while(next_permutation(numChar.begin(), numChar.end()));
+        cout << numbers << endl;
+
+        
+       //for(const auto tmp: numChar) test += tmp;
+       //cout << test << endl;
+       //if (isPrime3(stoi(test))) answer++;
+    }while(next_permutation(numbers.begin(), numbers.end()));
 
     return answer;
 }
