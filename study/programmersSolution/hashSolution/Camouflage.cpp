@@ -5,6 +5,15 @@ using namespace std;
 
 int solution(vector<vector<string>> clothes) {
     int answer = 0;
+    int len = clothes.size();
+    answer += len;
+
+    vector<int> count;
+
+    for(int i = 0; i < len; i++){
+        // 어떻게 구별해서 넣을건데?
+    }
+
     return answer;
 }
 
