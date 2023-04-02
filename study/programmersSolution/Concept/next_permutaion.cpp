@@ -8,7 +8,6 @@ using namespace std;
 int main(void){
 	vector<int> v = {0, 1, 2, 3, 4};
     int n = v.size();  // 5
-    int r = 1;
 	
     for(int r = 1; r < v.size(); r++){
         do{
