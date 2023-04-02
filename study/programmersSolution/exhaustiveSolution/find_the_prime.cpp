@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <set>
 using namespace std;
 
 bool isPrime3(int n){
@@ -17,33 +18,31 @@ bool isPrime3(int n){
                 isPrime[j] = false;
         }
     }
-    if(isPrime[n] == true) return true;
+    if(isPrime[n] == true && (n != 1 && n != 0)) return true;
     else return false;
 }  
 
 int solution(string numbers) {
     int answer = 0;
-    string test;
-    // vector<char> numChar;
-    // for(const char& i : numbers)
-    //     numChar.push_back(i);
+    set<int> findPrime;
     sort(numbers.begin(), numbers.end());
 
-    do{
-        test = "";
-        cout << numbers << endl;
-
-        
-       //for(const auto tmp: numChar) test += tmp;
-       //cout << test << endl;
-       //if (isPrime3(stoi(test))) answer++;
-    }while(next_permutation(numbers.begin(), numbers.end()));
-
+    for(int i = 1; i <= numbers.length(); i++){
+        do{
+             string test = "";
+            for(int j = 0; j < i; j++)
+                test += numbers[j];
+            reverse(numbers.begin() + i, numbers.end());
+            findPrime.insert(stoi(test));
+        }while(next_permutation(numbers.begin(), numbers.end()));   
+    }
+    for(const auto &tmp: findPrime)
+        if(isPrime3(tmp)) answer++;
     return answer;
 }
 
 int main(void){
-    string str = "011741";
-    solution(str);
+    string str = "013";
+    cout << solution(str) << endl;
     return 0;
 }
