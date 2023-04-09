@@ -1,10 +1,16 @@
 #include <string>
 #include <vector>
-
+#include <queue>
+#include <algorithm>
 using namespace std;
 
 int solution(int n, vector<vector<int>> edge) {
+    vector<vector<int>> graph(n + 1);
+    vector<int> counts(n + 1, 0);
+    vector<bool> visited(n + 1, false);
+    queue<int> queue;
     int answer = 0;
+
     return answer;
 }
 
