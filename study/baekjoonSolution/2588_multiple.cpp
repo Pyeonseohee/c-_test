@@ -1,13 +1,14 @@
 #include <iostream>
 #include <queue>
 using namespace std;
+// 세 자리 자연수라는 조건을 까먹어서... 괜히 어렵게 품!
 
 void solution(int &a, int &b){
     queue<int> q;
     int mul = a * b;
     while(b >= 10){
-        q.push(b % 10); // 5 8 
-        b /= 10;        // 38 3
+        q.push(b % 10);
+        b /= 10;
     }
     q.push(b);
 
