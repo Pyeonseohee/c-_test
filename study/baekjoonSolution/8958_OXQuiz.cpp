@@ -6,7 +6,7 @@ int main(void){
     scanf("%d", &a);
 
     for(int i = 0; i < a; i++){
-        char s[80];
+        char s[81];
         scanf("%s", s);
         int j = 0;
         int count = 0;
@@ -17,7 +17,7 @@ int main(void){
             else sum += ++count;
             j++;
         }
-        printf("%d", sum);
+        printf("%d\n", sum);
     }
     return 0;
 }
