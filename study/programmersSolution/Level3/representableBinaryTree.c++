@@ -12,9 +12,9 @@ void printBinary(vector<int> b) {
   cout << "\n";
 }
 
-bool checkEmpty(vector<int> b, long long start, long long end) {
+bool checkEmpty(vector<int> b, int start, int end) {
   if (start < end) {
-    long long centerIdx = (end + start) / 2;
+    int centerIdx = (end + start) / 2;
     if (!b[centerIdx] && (b[centerIdx - 1] != 0 || b[centerIdx - 1] != 0)) { // 중심이 비어있으면
       return 1;
     } else {
